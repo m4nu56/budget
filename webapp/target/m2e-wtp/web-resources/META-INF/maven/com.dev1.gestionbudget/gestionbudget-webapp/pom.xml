@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  
+    <!-- =============================================================== -->
+    <!-- Informations du projet -->
+    <!-- =============================================================== -->
+    <!-- ===== Projet Parent Maven ===== -->
+    <parent>
+        <groupId>com.dev1.gestionbudget</groupId>
+	    <artifactId>gestionbudget</artifactId>
+	    <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    
+    <!-- ===== Informations Maven ===== -->
+    <artifactId>gestionbudget-webapp</artifactId>
+    <packaging>war</packaging>
+
+    <!-- ===== Informations générales ===== -->
+    <name>${projectName} - Application web</name>
+
+
+    <!-- =============================================================== -->
+    <!-- Propriétés -->
+    <!-- =============================================================== -->
+    <properties>
+        <application.name>GestionBudget</application.name>
+        <maven.build.timestamp.format>dd/MM/yyyy</maven.build.timestamp.format>
+        <build.timestamp>${maven.build.timestamp}</build.timestamp>
+        <start-class>com.dev1.gestionbudget.webapp.SpringBootWebApplication</start-class>
+    </properties>
+
+
+    <!-- =============================================================== -->
+    <!-- Dépendances -->
+    <!-- =============================================================== -->
+    <dependencies>
+        <!-- ===== Modules ===== -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>metier</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>model</artifactId>
+        </dependency>
+        <!-- <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>${project.parent.artifactId}-technical</artifactId>
+        </dependency> -->
+
+
+        <!-- ===== Bibliothèques tierces ===== -->
+        <!-- Spring Framework -->
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
+        
+        <!-- SpringBoot pour le package web -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-test</artifactId>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-maven-plugin</artifactId>
+		</dependency>
+		<dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-devtools</artifactId>
+	        <optional>true</optional>
+	    </dependency>
+           
+        <!-- Javax Servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>jstl</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-moxy</artifactId>
+        </dependency>
+        
+        
+        <!-- ===== Tests ===== -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        
+    </dependencies>
+
+    <!-- =============================================================== -->
+    <!-- Build -->
+    <!-- =============================================================== -->
+     <build>
+        <finalName>gestionbudget</finalName>
+
+        <plugins>
+	    	<!-- Spring Boot Maven Plugin -->
+	        <plugin>
+		         <groupId>org.springframework.boot</groupId>
+		         <artifactId>spring-boot-maven-plugin</artifactId>
+		         <executions>
+		             <execution>
+		                 <goals>
+		                     <goal>repackage</goal>
+		                 </goals>
+		             </execution>
+		         </executions>
+		         <configuration>
+	                <mainClass>com.dev1.gestionbudget.webapp.SpringBootWebApplication</mainClass>
+	            </configuration>
+	         </plugin>
+	         
+	         <!-- Déploiement du war sur un tomcat 8.5 -->
+            <plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<url>http://localhost:8080/manager/text</url>
+					<server>TomcatServer</server>
+					<path>/gestionbudget</path>
+				</configuration>
+			</plugin>
+        </plugins>
+    </build>
+    
+</project>

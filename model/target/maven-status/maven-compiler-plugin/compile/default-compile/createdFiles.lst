@@ -1,0 +1,13 @@
+com\dev1\generic\model\dao\fieldDb\AliasFieldJsonDb.class
+com\dev1\generic\model\dao\StandardDao.class
+com\dev1\generic\model\dao\fieldDb\FieldDbKeyValue.class
+com\dev1\generic\model\dao\StandardDaoInterface.class
+com\dev1\gestionbudget\model\App.class
+com\dev1\gestionbudget\model\bean\Mouvement.class
+com\dev1\generic\utils\formulaire\CRUD.class
+com\dev1\gestionbudget\model\exception\NotFoundException.class
+com\dev1\generic\model\dao\StandardDao$2.class
+com\dev1\generic\model\dao\fieldDb\FieldDb.class
+com\dev1\generic\model\dao\StandardDao$1.class
+com\dev1\generic\utils\formulaire\CRUD$1.class
+com\dev1\generic\model\dao\fieldDb\AliasFieldDb.class

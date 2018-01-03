@@ -1,0 +1,4 @@
+com\dev1\gestionbudget\mouvement\MouvementDao.class
+com\dev1\gestionbudget\mouvement\MouvementDaoInterface.class
+com\dev1\gestionbudget\mouvement\MouvementDao$Field.class
+com\dev1\gestionbudget\mouvement\MouvementRowMapper.class
